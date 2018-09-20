@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'phorest-app',
+    podModulePrefix: 'phorest-app/modules',
     environment,
     rootURL: '/',
     locationType: 'auto',
