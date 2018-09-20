@@ -1,4 +1,7 @@
-<section class="section">
-  <div class="container">
-  </div>
-</section>
+{{#bulma/bulma-hero classNames="is-primary"}}
+  <h1 class="title">
+    Voucher generator
+  </h1>
+{{/bulma/bulma-hero}}
+
+{{form/voucher-generator onSubmit=(action "generateVoucher")}}
