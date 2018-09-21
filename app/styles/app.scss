@@ -4,15 +4,18 @@
 @import "node_modules/bulma/sass/utilities/_all";
 @import "node_modules/bulma/sass/base/_all";
 
+// Our overwrites for Bulma's variables
+@import "overwrites/_bulma-variables";
+
 // Bulma elements:
 @import "node_modules/bulma/sass/elements/box.sass";
 @import "node_modules/bulma/sass/elements/button.sass";
 @import "node_modules/bulma/sass/elements/container.sass";
 //@import "node_modules/bulma/sass/elements/content.sass";
 @import "node_modules/bulma/sass/elements/form.sass";
-//@import "node_modules/bulma/sass/elements/icon.sass";
+@import "node_modules/bulma/sass/elements/icon.sass";
 //@import "node_modules/bulma/sass/elements/image.sass";
-//@import "node_modules/bulma/sass/elements/notification.sass";
+@import "node_modules/bulma/sass/elements/notification.sass";
 //@import "node_modules/bulma/sass/elements/progress.sass";
 //@import "node_modules/bulma/sass/elements/table.sass";
 //@import "node_modules/bulma/sass/elements/tag.sass";

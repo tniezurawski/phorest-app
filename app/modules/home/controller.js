@@ -3,6 +3,7 @@ import { action } from '@ember-decorators/object';
 
 export default class HomeController extends Controller {
   @action
-  generateVoucher() {
+  searchForClient(email, phone) {
+    return this.store.query('client', { email, phone });
   }
 }

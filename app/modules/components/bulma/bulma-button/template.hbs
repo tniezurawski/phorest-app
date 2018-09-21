@@ -1,0 +1,7 @@
+{{#if isLoading}}
+  <span class="icon" data-test-loading>
+    {{fa-icon "spinner" pulse=true spin=true}}
+  </span>
+{{/if}}
+
+<span>{{yield}}</span>

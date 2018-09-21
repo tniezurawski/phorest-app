@@ -4,4 +4,8 @@
   </h1>
 {{/bulma/bulma-hero}}
 
-{{form/voucher-generator onSubmit=(action "generateVoucher")}}
+{{form/voucher-generator
+  email=email
+  phone=phone
+  onSubmit=(action "searchForClient")
+}}

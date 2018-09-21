@@ -1,4 +1,4 @@
-<form {{action onSubmit on="submit"}}>
+<form {{action "handleSubmit" on="submit"}}>
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-half">
@@ -6,11 +6,19 @@
           <div class="subtitle form-title" data-test-form-title>Find a client and generate a voucher</div>
           <p class="form-description" data-test-form-desc>Type email or phone</p>
 
+          {{#if showFormError}}
+            <div class="notification is-danger" data-test-form-error>
+              Ups! An error occurred. Please contact with us if it will happen again.
+            </div>
+          {{/if}}
+
           <div class="columns">
             <div class="column">
               {{bulma/bulma-field
                 data-test-email
                 value=email
+                error=validations.attrs.email.message
+                globalError=globalError
                 label="Email"
                 type="email"
                 placeholder="e.g. techtest@phorest.com"
@@ -19,6 +27,8 @@
             <div class="column">
               {{bulma/bulma-field
                 data-test-phone
+                error=validations.attrs.phone.message
+                globalError=globalError
                 value=phone
                 label="Phone"
                 placeholder="e.g. 888888855599222"
@@ -28,9 +38,13 @@
 
           <div class="field is-grouped is-grouped-right">
             <p class="control">
-              <button class="button is-primary">
+              {{#bulma/bulma-button
+                classNames="is-primary"
+                isLoading=isSearching
+                disabled=isSearching
+              }}
                 Search
-              </button>
+              {{/bulma/bulma-button}}
             </p>
           </div>
 

@@ -24,6 +24,20 @@ module.exports = function(environment) {
     }
   };
 
+  // For this demo example I will use the same host and namespace in all environments
+  ENV.api = {
+    host: 'https://api-gateway-dev.phorest.com',
+    namespace: 'third-party-api-server/api'
+  };
+  // I don't want to assume too much but all these variables would be probably get in a different way
+  // Anyway, for this demo example I think it's ok to put it here
+  ENV.auth = {
+    businessId: 'eTC3QY5W3p_HmGHezKfxJw',
+    branchId: 'SE-J0emUgQnya14mOGdQSw',
+    password: 'VMlRo/eh+Xd8M~l',
+    username: 'global/cloud@apiexamples.com',
+  };
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;

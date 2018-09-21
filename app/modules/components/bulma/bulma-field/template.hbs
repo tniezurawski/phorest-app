@@ -8,4 +8,7 @@
       placeholder=placeholder
     }}
   </div>
+  {{#if showError}}
+    <p class="help is-danger" data-test-error>{{error}}</p>
+  {{/if}}
 </div>
