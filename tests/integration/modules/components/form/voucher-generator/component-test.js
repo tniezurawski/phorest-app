@@ -11,7 +11,7 @@ module('Integration | Component | form/voucher-generator', function(hooks) {
 
     await render(hbs`{{form/voucher-generator onSubmit=(action onSubmit)}}`);
 
-    assert.equal(this.element.querySelector('[data-test-form-title]').textContent.trim(), 'Find a client and generate voucher', 'has set proper form title');
+    assert.equal(this.element.querySelector('[data-test-form-title]').textContent.trim(), 'Find a client and generate a voucher', 'has set proper form title');
     assert.equal(this.element.querySelector('[data-test-form-desc]').textContent.trim(), 'Type email or phone', 'has set proper form description');
     
     assert.equal(this.element.querySelectorAll('[data-test-email]').length, 1, 'has email field');
