@@ -9,3 +9,7 @@
   phone=phone
   onSubmit=(action "searchForClient")
 }}
+
+{{#if showClients}}
+  {{client/clients-table clients=clients}}
+{{/if}}
