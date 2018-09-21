@@ -8,30 +8,21 @@
 
           <div class="columns">
             <div class="column">
-              <div class="field">
-                <label class="label">Email</label>
-                <div class="control">
-                  <input
-                    class="input"
-                    type="email"
-                    placeholder="e.g. techtest@phorest.com"
-                    data-test-email
-                  >
-                </div>
-              </div>
+              {{bulma/bulma-field
+                data-test-email
+                value=email
+                label="Email"
+                type="email"
+                placeholder="e.g. techtest@phorest.com"
+              }}
             </div>
             <div class="column">
-              <div class="field">
-                <label class="label">Phone</label>
-                <div class="control">
-                  <input
-                    class="input"
-                    type="text"
-                    placeholder="e.g. 888888855599222"
-                    data-test-phone
-                  >
-                </div>
-              </div>
+              {{bulma/bulma-field
+                data-test-phone
+                value=phone
+                label="Phone"
+                placeholder="e.g. 888888855599222"
+              }}
             </div>
           </div>
 
