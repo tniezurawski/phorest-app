@@ -1,5 +1,6 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
+import sinon from 'sinon';
 
 module('Unit | Adapter | application', function(hooks) {
   setupTest(hooks);
@@ -23,5 +24,25 @@ module('Unit | Adapter | application', function(hooks) {
     let expectedResult = 'awesome-client';
 
     assert.equal(adapter.pathForType(modelNameMock), expectedResult, 'return proper value');
+  });
+
+  test('@method query', function(assert) {
+    let adapter = this.owner.lookup('adapter:application');
+    let storeMock = {};
+    let typeMock = 'type';
+    let queryMock = {
+      email: 'test@example.com',
+      phone: '',
+      items: [],
+    };
+    let expectedMutatedQuery = { // no phone field as it is empty and not an array
+      email: 'test@example.com',
+      items: [],
+    };
+    adapter.ajax = sinon.spy();
+
+    adapter.query(storeMock, typeMock, queryMock);
+
+    assert.deepEqual(queryMock, expectedMutatedQuery, 'empty values (except empty array) are removed from query params');
   });
 });
