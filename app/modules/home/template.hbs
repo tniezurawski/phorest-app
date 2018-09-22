@@ -11,5 +11,8 @@
 }}
 
 {{#if showClients}}
-  {{client/clients-table clients=clients}}
+  {{client/clients-table
+    clients=clients
+    generateVoucher=(action "generateVoucher")
+  }}
 {{/if}}

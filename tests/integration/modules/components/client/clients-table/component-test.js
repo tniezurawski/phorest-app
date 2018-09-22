@@ -12,7 +12,8 @@ module('Integration | Component | client/clients-table', function(hooks) {
       { fullName: 'Jane Doe', email: 'janedoe@example.com', mobile: '87654321'},
       { fullName: 'Tomasz Nieżurawski', email: 'tn@example.com', mobile: '54637281'},
     ]);
-    await render(hbs`{{client/clients-table clients=clients}}`);
+    this.set('generateVoucher', () => assert.ok(true));
+    await render(hbs`{{client/clients-table clients=clients generateVoucher=(action generateVoucher)}}`);
 
     assert.equal(this.element.querySelector('thead [data-test-name]').textContent.trim(), 'Name', 'show name column');
     assert.equal(this.element.querySelector('thead [data-test-email]').textContent.trim(), 'Email', 'show email column');

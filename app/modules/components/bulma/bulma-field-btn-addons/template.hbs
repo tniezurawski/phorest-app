@@ -1,0 +1,27 @@
+{{#if leftAddon}}
+  <div class="control" data-test-leftaddon>
+    <a class="button is-static {{sizeClass}}">{{leftAddon}}</a>
+  </div>
+{{/if}}
+
+<div class="control" data-test-input>
+  {{input
+    class=inputClasses
+    value=inputValue
+    placeholder=inputPlaceholder
+  }}
+</div>
+
+{{#if hasRightAddon}}
+  <div class="control" data-test-rightaddon>
+    {{#bulma/bulma-button
+      type="button"
+      classNames=btnClasses
+      isLoading=isLoading
+      disabled=btnDisabled
+      click=(action onButtonClick)
+    }}
+      {{btnLabel}}
+    {{/bulma/bulma-button}}
+  </div>
+{{/if}}

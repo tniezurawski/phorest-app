@@ -1,22 +1,27 @@
 <div class="container">
   <div class="columns is-centered">
     <div class="column is-three-quarters">
-      <table class="table is-fullwidth is-striped">
-        <thead>
-          <tr>
-            <th data-test-name>Name</th>
-            <th data-test-email>Email</th>
-            <th data-test-phone>Phone</th>
-            <th data-test-voucher>Voucher</th>
-          </tr>
-        </thead>
+      <div class="table-container">
+        <table class="table is-fullwidth is-striped">
+          <thead>
+            <tr>
+              <th data-test-name>Name</th>
+              <th data-test-email>Email</th>
+              <th data-test-phone>Phone</th>
+              <th data-test-voucher>Voucher</th>
+            </tr>
+          </thead>
 
-        <tbody>
-          {{#each clients as |client|}}
-            {{client/clients-table-row client=client}}
-          {{/each}}
-        </tbody>
-      </table>
+          <tbody>
+            {{#each clients as |client|}}
+              {{client/clients-table-row
+                client=client
+                generateVoucher=(action generateVoucher)
+              }}
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
