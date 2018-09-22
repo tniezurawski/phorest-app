@@ -15,4 +15,10 @@
     clients=clients
     generateVoucher=(action "generateVoucher")
   }}
+{{else}}
+  {{#if hasSearched}}
+    <div class="has-text-centered">
+      <h2 class="subtitle">No clients match your criteria</h2>
+    </div>
+  {{/if}}
 {{/if}}

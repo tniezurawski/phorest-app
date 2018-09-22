@@ -7,6 +7,7 @@ export default class HomeController extends Controller {
   @service voucher;
 
   clients = [];
+  hasSearched = false;
 
   @gt('clients.length', 0) showClients;
 
@@ -18,6 +19,9 @@ export default class HomeController extends Controller {
   @action
   async searchForClient(email, phone) {
     const clients = await this.store.query('client', { email, phone });
-    this.set('clients', clients);
+    this.setProperties({
+      clients,
+      hasSearched: true,
+    });
   }
 }
