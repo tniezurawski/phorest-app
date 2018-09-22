@@ -40,5 +40,6 @@ module('Integration | Component | bulma/bulma-field', function(hooks) {
     this.set('globalError', true);
 
     assert.equal(this.element.querySelector('[data-test-error]').textContent.trim(), 'important error message', 'show an error');
+    assert.equal(this.element.querySelector('input').classList.contains('is-danger'), true, 'input has error class');
   });
 });
