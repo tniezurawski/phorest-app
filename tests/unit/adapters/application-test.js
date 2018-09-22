@@ -1,6 +1,7 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 import sinon from 'sinon';
+import ENV from 'phorest-app/config/environment';
 
 module('Unit | Adapter | application', function(hooks) {
   setupTest(hooks);
@@ -13,8 +14,8 @@ module('Unit | Adapter | application', function(hooks) {
       'Content-Type': 'application/hal+json',
     };
 
-    assert.equal(adapter.host, 'https://api-gateway-dev.phorest.com', 'has proper host set');
-    assert.equal(adapter.namespace, 'third-party-api-server/api/business/eTC3QY5W3p_HmGHezKfxJw', 'has proper namespace set');
+    assert.equal(adapter.host, ENV.api.host, 'has proper host set');
+    assert.equal(adapter.namespace, `${ENV.api.namespace}/business/${ENV.auth.businessId}`, 'has proper namespace set');
     assert.deepEqual(adapter.headers, expectedHeaders, 'has proper headers set');
   });
 

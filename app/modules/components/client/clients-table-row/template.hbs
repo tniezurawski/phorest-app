@@ -3,7 +3,7 @@
 <td data-test-mobile>{{client.mobile}}</td>
 <td data-test-action>
   {{#if hasVoucher}}
-    Voucher Number: {{voucher.serialNumber}}
+    <span data-test-voucher-number>Voucher Number: {{voucher.serialNumber}}</span>
   {{else}}
     {{bulma/bulma-field-btn-addons
       leftAddon="$"

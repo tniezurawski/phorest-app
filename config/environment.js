@@ -38,12 +38,18 @@ module.exports = function(environment) {
     username: 'global/cloud@apiexamples.com',
   };
 
+  ENV['ember-cli-mirage'] = {
+    enabled: true,
+    autostart: true,
+  };
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV['ember-cli-mirage'].enabled = false;
   }
 
   if (environment === 'test') {
@@ -56,10 +62,16 @@ module.exports = function(environment) {
 
     ENV.APP.rootElement = '#ember-testing';
     ENV.APP.autoboot = false;
+
+    ENV['ember-cli-mirage'].enabled = true;
+
+    ENV.api.host = '';
+    ENV.api.namespace = 'api'
   }
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+    ENV['ember-cli-mirage'].enabled = false;
   }
 
   return ENV;
