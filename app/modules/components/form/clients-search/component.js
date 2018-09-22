@@ -24,7 +24,7 @@ const Validations = buildValidations({
 });
 
 @hasValidations(Validations)
-export default class FormVoucherGenerator extends Component {
+export default class FormClientsSearch extends Component {
   globalError = false;
   isSearching = false;
   showFormError = false;

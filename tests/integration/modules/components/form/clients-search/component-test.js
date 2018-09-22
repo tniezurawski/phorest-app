@@ -3,13 +3,13 @@ import { setupRenderingTest } from 'ember-qunit';
 import { click, render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-module('Integration | Component | form/voucher-generator', function(hooks) {
+module('Integration | Component | form/clients-search', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
     this.set('onSubmit', () => assert.ok(true));
 
-    await render(hbs`{{form/voucher-generator onSubmit=(action onSubmit) showFormError=showFormError}}`);
+    await render(hbs`{{form/clients-search onSubmit=(action onSubmit) showFormError=showFormError}}`);
 
     assert.equal(this.element.querySelector('[data-test-form-title]').textContent.trim(), 'Find a client and generate a voucher', 'has set proper form title');
     assert.equal(this.element.querySelector('[data-test-form-desc]').textContent.trim(), 'Type email or phone', 'has set proper form description');
@@ -27,7 +27,7 @@ module('Integration | Component | form/voucher-generator', function(hooks) {
     test('show validation error', async function(assert) {
       this.set('onSubmit', () => assert.ok(true));
 
-      await render(hbs`{{form/voucher-generator onSubmit=(action onSubmit)}}`);
+      await render(hbs`{{form/clients-search onSubmit=(action onSubmit)}}`);
       await click('button');
 
       assert.equal(this.element.querySelectorAll('[data-test-error]').length, 2, 'two fields have errors');
@@ -39,7 +39,7 @@ module('Integration | Component | form/voucher-generator', function(hooks) {
       this.set('onSubmit', () => { return Promise.reject({ message: 'Error' }); });
 
       await render(hbs`
-        {{form/voucher-generator
+        {{form/clients-search
           email=email
           phone=phone
           onSubmit=(action onSubmit)
